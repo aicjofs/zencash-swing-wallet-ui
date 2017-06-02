@@ -122,10 +122,10 @@ public class DashboardPanel
 			this.getClass().getClassLoader().getResource("images/Z-yellow.orange-logo-small.png")));
 		tempPanel.add(logoLabel);
 		//tempPanel.add(new JLabel(" "));
-		JLabel zcLabel = new JLabel("Classic Wallet     ");
+		JLabel zcLabel = new JLabel("Zen Cash Wallet     ");
 		zcLabel.setFont(new Font("Helvetica", Font.BOLD | Font.ITALIC, 32));
 		tempPanel.add(zcLabel);
-		tempPanel.setToolTipText("Powered by ZClassic");
+		tempPanel.setToolTipText("Powered by ZenCash");
 		balanceStatusPanel.add(tempPanel, BorderLayout.WEST);
 				
 		JLabel transactionHeadingLabel = new JLabel(
@@ -379,7 +379,7 @@ public class DashboardPanel
 		}
 		
 		String text =
-			"<html><span style=\"font-weight:bold;color:#303030\">zcashd</span> status: " + 
+			"<html><span style=\"font-weight:bold;color:#303030\">zend</span> status: " + 
 		    daemonStatus + ",  " + runtimeInfo + " <br/>" +
 			"Wallet: <span style=\"font-weight:bold;color:#303030\">" + walletDAT.getCanonicalPath() + "</span>" + 
 			walletEncryption + " <br/> " +
@@ -496,7 +496,7 @@ public class DashboardPanel
 			return;
 		}
 		
-		// Format double numbers - else sometimes we get exponential notation 1E-4 ZCL
+		// Format double numbers - else sometimes we get exponential notation 1E-4 ZEN
 		DecimalFormat df = new DecimalFormat("########0.00######");
 		
 		String transparentBalance = df.format(balance.transparentBalance);
@@ -514,11 +514,11 @@ public class DashboardPanel
 		String text =
 			"<html>" + 
 		    "<span style=\"font-family:monospace;font-size:8.9px;" + color1 + "\">Transparent balance: <span style=\"font-size:9px\">" + 
-				transparentUCBalance + " ZCL </span></span><br/> " +
+				transparentUCBalance + " ZEN </span></span><br/> " +
 			"<span style=\"font-family:monospace;font-size:8.9px;" + color2 + "\">Private (Z) balance: <span style=\"font-weight:bold;font-size:9px\">" + 
-		    	privateUCBalance + " ZCL </span></span><br/> " +
+		    	privateUCBalance + " ZEN </span></span><br/> " +
 			"<span style=\"font-family:monospace;font-size:8.9px;" + color3 + "\">Total (Z+T) balance: <span style=\"font-weight:bold;font-size:11.5px;\">" + 
-		    	totalUCBalance + " ZCL </span></span>" +
+		    	totalUCBalance + " ZEN </span></span>" +
 			"<br/>  </html>";
 		
 		this.walletBalanceLabel.setText(text);
@@ -532,9 +532,9 @@ public class DashboardPanel
 					  "Unconfirmed (unspendable) balance is being shown due to an<br/>" + 
 		              "ongoing transaction! Actual confirmed (spendable) balance is:<br/>" +
 		              "<span style=\"font-size:5px\"><br/></span>" +
-					  "Transparent: " + transparentBalance + " ZCL<br/>" +
-		              "Private ( Z ): <span style=\"font-weight:bold\">" + privateBalance + " ZCL</span><br/>" +
-					  "Total ( Z+T ): <span style=\"font-weight:bold\">" + totalBalance + " ZCL</span>" +
+					  "Transparent: " + transparentBalance + " ZEN<br/>" +
+		              "Private ( Z ): <span style=\"font-weight:bold\">" + privateBalance + " ZEN</span><br/>" +
+					  "Total ( Z+T ): <span style=\"font-weight:bold\">" + totalBalance + " ZEN</span>" +
 					  "</html>";
 		}
 		

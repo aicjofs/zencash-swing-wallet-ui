@@ -71,7 +71,7 @@ public class ZCashInstallationObserver
 		if (!dir.exists() || dir.isFile())
 		{
 			throw new InstallationDetectionException(
-				"The ZClassic installation directory " + installDir + " does not exist or is not " +
+				"The ZenCash installation directory " + installDir + " does not exist or is not " +
 			    "a directory or is otherwise inaccessible to the wallet!");
 		}
 
@@ -84,16 +84,16 @@ public class ZCashInstallationObserver
 			zcashcli = OSUtil.findZCashCommand(OSUtil.getZCashCli());
 		}
 
-		System.out.println("Using ZClassic utilities: " +
-		                   "zcashd: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
-		                   "zcash-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
+		System.out.println("Using ZenCash utilities: " +
+		                   "zend: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
+		                   "zen-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
 
 		if ((zcashd == null) || (zcashcli == null) || (!zcashd.exists()) || (!zcashcli.exists()))
 		{
 			throw new InstallationDetectionException(
-				"The ZClassic GUI Wallet installation directory " + installDir + " needs\nto contain " +
-				"the command line utilities zcashd and zcash-cli. At least one of them is missing! \n" +
-				"Please place files ZClassicSwingWalletUI.jar, " + OSUtil.getZCashCli() + ", " + 
+				"The ZenCash GUI Wallet installation directory " + installDir + " needs\nto contain " +
+				"the command line utilities zend and zen-cli. At least one of them is missing! \n" +
+				"Please place files ZenCashSwingWalletUI.jar, " + OSUtil.getZCashCli() + ", " + 
 				OSUtil.getZCashd() + " in the same directory.");
 		}
 	}
