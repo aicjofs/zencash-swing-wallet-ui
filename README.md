@@ -5,7 +5,7 @@
 This program provides a Graphical User Interface (GUI) for the Zencash client tools that acts as a wrapper and 
 presents the information in a user-friendly manner.
 
-![Screenshot](https://github.com/vaklinov/zclassic-swing-wallet-ui/raw/master/docs/ZClassicWallet.png "Main Window")
+![Screenshot](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/docs/ZClassicWallet.png "Main Window")
 
 #### New/Experimental: [Zencash Desktop GUI Wallet for Windows](https://github.com/vaklinov/zclassic-swing-wallet-ui/blob/master/docs/Readme-Windows.md) is available
 
@@ -16,13 +16,13 @@ presents the information in a user-friendly manner.
 **[source](https://github.com/vaklinov/zclassic-swing-wallet-ui/archive/master.zip).**
 The details of how to build it are described below (easy to follow).
 Users who insist on downloading a binary release may instead 
-use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.com/vaklinov/zclassic-swing-wallet-ui/blob/master/docs/Release_0.58.2-beta.md)
+use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Release_0.58.2-beta.md)
 
 
 1. Operating system and tools
 
-   As of February 2017 (ZClassic v1.0.5) this program is primarily tested on Linux but also supports
-   MacOS/Windows (same limitation as [ZClassic](http://zclassic.org)).   
+   As of June 2017 this program is primarily tested on Linux but also supports
+   MacOS/Windows (same limitation as [ZenCash](http://zencash.io)).   
    The tools you need to build and run the Wallet GUI are Git, Java (JDK7 or later) and 
    Ant. If using Ubuntu Linux, they may be installed via command: 
    ```
@@ -40,7 +40,7 @@ use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.co
 
 2. Building from source code
 
-   As a start you need to clone the zclassic-swing-wallet-ui Git repository:
+   As a start you need to clone the zencash-swing-wallet-ui Git repository:
    ```
    user@ubuntu:~/build-dir$ git clone https://github.com/aicjofs/zencash-swing-wallet-ui.git
    ```
@@ -99,7 +99,7 @@ t1Ja4g7cERDhQVNhsMMNZ49Pm7i2hjDXUuV
 
 
 ### License
-This program is distributed under an [MIT License](https://github.com/vaklinov/zclassic-swing-wallet-ui/raw/master/LICENSE).
+This program is distributed under an [MIT License](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/LICENSE).
 
 ### Disclaimer
 
