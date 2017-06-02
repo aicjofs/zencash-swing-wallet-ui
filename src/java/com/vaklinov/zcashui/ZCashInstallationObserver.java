@@ -226,7 +226,7 @@ public class ZCashInstallationObserver
 
 				if (i == 0)
 				{
-					if (token.equals("zcashd.exe") || token.equals("zcashd"))
+					if (token.equals("zend.exe") || token.equals("zend"))
 					{
 						info.status = DAEMON_STATUS.RUNNING;
 						foundZCash = true;
