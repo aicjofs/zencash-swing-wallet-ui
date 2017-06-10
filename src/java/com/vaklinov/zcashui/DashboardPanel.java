@@ -478,7 +478,7 @@ public class DashboardPanel
 			percentage + "% </span> " + tick + " <br/>" +
 			"Up to: <span style=\"font-size:8px;font-weight:bold\">" + 
 		    info.lastBlockDate.toLocaleString() + "</span>  <br/> " + 
-			"<span style=\"font-size:1px\"><br/></span>" + 
+			"Block Height: <span style=\"font-size:8px;font-weight:bold\">" + info.blockHeight + "<br/></span>" + 
 			"Network: <span style=\"font-weight:bold\">" + info.numConnections + " connections</span>" +
 			"<span style=\"font-size:16px;color:" + netColor + "\">" + connections + "</span>";
 		this.networkAndBlockchainLabel.setText(text);
