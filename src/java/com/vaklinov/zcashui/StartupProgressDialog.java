@@ -176,7 +176,7 @@ public class StartupProgressDialog extends JFrame {
 	                if (StartupProgressDialog.this.isAlive(daemonProcess)) {
 	                    	System.out.println("zend is still alive although we tried to stop it. " +
 	                                           "Hopefully it will stop later!");
-	                        //System.out.println("zcashd is still alive, killing forcefully");
+	                        //System.out.println("zend is still alive, killing forcefully");
 	                        //daemonProcess.destroyForcibly();
 	                    } else
 	                        System.out.println("zend shut down successfully");
