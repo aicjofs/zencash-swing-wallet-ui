@@ -123,7 +123,7 @@ public class TransactionTable
 						System.out.println("Transaction ID for block explorer is: " + txID);
 						// https://explorer.zcha.in/transactions/<ID>
 						Desktop.getDesktop().browse(
-							new URL("https://classic.zcha.in/transactions/" + txID).toURI());
+							new URL("http://node1.zenchain.info:8886/tx/" + txID).toURI());
 					} catch (Exception ex)
 					{
 						ex.printStackTrace();
