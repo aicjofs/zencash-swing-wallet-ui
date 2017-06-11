@@ -470,7 +470,11 @@ public class DashboardPanel
 		if (info.numConnections > 6)
 		{
 			netColor = "green";
-		}		
+		}
+
+		DecimalFormat df = new DecimalFormat("########0");
+		
+		String difficulty = df.format(info.currentDifficulty);		
 				
 		String text =
 			"<html> " +
@@ -479,6 +483,7 @@ public class DashboardPanel
 			"Up to: <span style=\"font-size:8px;font-weight:bold\">" + 
 		    info.lastBlockDate.toLocaleString() + "</span>  <br/> " + 
 			"Block Height: <span style=\"font-size:8px;font-weight:bold\">" + info.blockHeight + "<br/></span>" + 
+			"Difficulty: <span style=\"font-size:8px;font-weight:bold\">" + difficulty + "<br/></span>" +
 			"Network: <span style=\"font-weight:bold\">" + info.numConnections + " connections</span>" +
 			"<span style=\"font-size:16px;color:" + netColor + "\">" + connections + "</span>";
 		this.networkAndBlockchainLabel.setText(text);

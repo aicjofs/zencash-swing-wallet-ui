@@ -77,6 +77,7 @@ public class ZCashClientCaller
 	{
 		public int numConnections;
 		public int blockHeight;
+		public double currentDifficulty;
 		public Date lastBlockDate;
 	}
 
@@ -595,6 +596,10 @@ public class ZCashClientCaller
 
 		String strBlockCount = this.executeCommandAndGetSingleStringResponse("getblockcount");
 		info.blockHeight = Integer.valueOf(strBlockCount.trim());
+
+		String strCDiff = this.executeCommandAndGetSingleStringResponse("getdifficulty");
+		info.currentDifficulty = Double.valueOf(strCDiff.trim());
+
 		String lastBlockHash = this.executeCommandAndGetSingleStringResponse("getblockhash", strBlockCount.trim());
 		JsonObject lastBlock = this.executeCommandAndGetJsonObject("getblock", wrapStringParameter(lastBlockHash.trim()));
 		info.lastBlockDate = new Date(Long.valueOf(lastBlock.getLong("time", -1) * 1000L));
