@@ -53,6 +53,7 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 
 import com.vaklinov.zcashui.OSUtil.OS_TYPE;
+import com.vaklinov.zcashui.ZCashClientCaller.DaemonVersion;
 import com.vaklinov.zcashui.ZCashClientCaller.NetworkAndBlockchainInfo;
 import com.vaklinov.zcashui.ZCashClientCaller.WalletBalance;
 import com.vaklinov.zcashui.ZCashClientCaller.WalletCallException;
@@ -326,7 +327,11 @@ public class DashboardPanel
 		throws IOException, InterruptedException, WalletCallException
 	{
 		DaemonInfo daemonInfo = this.daemonInfoGatheringThread.getLastData();
-		
+		DaemonVersion ver = clientCaller.getDaemonVersion();
+		String daemonVersion  = String.valueOf(ver.dVersion);
+		String walletVersion  = String.valueOf(ver.wVersion);
+		String protocolVersion  = String.valueOf(ver.pVersion);
+		String subdaemonVersion = String.valueOf(ver.sdVersion); 		
 		// It is possible there has been no gathering initially
 		if (daemonInfo == null)
 		{
@@ -383,10 +388,12 @@ public class DashboardPanel
 		    daemonStatus + ",  " + runtimeInfo + " <br/>" +
 			"Wallet: <span style=\"font-weight:bold;color:#303030\">" + walletDAT.getCanonicalPath() + "</span>" + 
 			walletEncryption + " <br/> " +
-			"<span style=\"font-size:3px\"><br/></span>" +
 			"<span style=\"font-size:8px\">" +
 			"Installation: " + OSUtil.getProgramDirectory() + ", " +
 	        "Blockchain: " + OSUtil.getBlockchainDirectory() + " <br/> " +
+		"Daemon Version: " + daemonVersion + subdaemonVersion + " <br/> " +
+		"Wallet Version: " + walletVersion +
+		"  Protocol Version: " + protocolVersion + " <br/> " +
 		    "System: " + this.OSInfo + " </span> </html>";
 		this.daemonStatusLabel.setText(text);
 	}

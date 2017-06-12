@@ -72,6 +72,13 @@ public class ZCashClientCaller
 		public double totalUnconfirmedBalance;
 	}
 
+	public static class DaemonVersion
+	{
+		public int dVersion;
+		public int wVersion;
+		public int pVersion;
+		public String sdVersion = null;
+	}
 
 	public static class NetworkAndBlockchainInfo
 	{
@@ -607,6 +614,28 @@ public class ZCashClientCaller
 		return info;
 	}
 
+	public synchronized DaemonVersion getDaemonVersion()
+		throws WalletCallException, IOException, InterruptedException
+	{
+		DaemonVersion ver = new DaemonVersion();
+		JsonObject objResponse = this.executeCommandAndGetJsonObject("getinfo", null);
+		JsonObject objResponse1 = this.executeCommandAndGetJsonObject("getnetworkinfo", null);
+ 
+                String daemonVersion = String.valueOf(objResponse.getLong("version", -1));
+		ver.dVersion = Integer.valueOf(daemonVersion.trim());
+
+                String subdaemonVersion = String.valueOf(objResponse1.getString("subversion", "-1"));
+		ver.sdVersion = String.valueOf(subdaemonVersion.trim());
+
+                String walletVersion = String.valueOf(objResponse.getLong("walletversion", -1));
+		ver.wVersion = Integer.valueOf(walletVersion.trim());
+
+
+                String protocolVersion = String.valueOf(objResponse.getLong("protocolversion", -1));
+		ver.pVersion = Integer.valueOf(protocolVersion.trim());
+ 
+		return ver;
+	}
 
 	public synchronized void lockWallet()
 		throws WalletCallException, IOException, InterruptedException
