@@ -1,4 +1,4 @@
-# [ZenCash](https://zencash.io/) Desktop GUI Wallet
+# [ZenCash](https://zensystem.io/) Desktop GUI Wallet
 
 ## Graphical user interface wrapper for the [Zencash](https://zencash.io/) command line tools
 
@@ -7,22 +7,22 @@ presents the information in a user-friendly manner.
 
 ![Screenshot](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/docs/ZClassicWallet.png "Main Window")
 
-#### New/Experimental: [Zencash Desktop GUI Wallet for Windows](https://github.com/vaklinov/zclassic-swing-wallet-ui/blob/master/docs/Readme-Windows.md) is available
+#### New/Experimental: [Zencash Desktop GUI Wallet for Windows](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Readme-Windows.md) is available
 
 ## Building, installing and running the Wallet GUI
 
 
 **For security reasons it is recommended to always build the GUI wallet program from GitHub**
-**[source](https://github.com/vaklinov/zclassic-swing-wallet-ui/archive/master.zip).**
+**[source](https://github.com/aicjofs/zencash-swing-wallet-ui/archive/master.zip).**
 The details of how to build it are described below (easy to follow).
 Users who insist on downloading a binary release may instead 
-use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Release_0.58.2-beta.md)
+use [ZenCash Desktop GUI Wallet - binary release 0.58.2-beta](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Release_0.58.2-beta.md)
 
 
 1. Operating system and tools
 
    As of June 2017 this program is primarily tested on Linux but also supports
-   MacOS/Windows (same limitation as [ZenCash](http://zencash.io)).   
+   MacOS/Windows (same limitation as [ZenCash](http://zensystem.io)).   
    The tools you need to build and run the Wallet GUI are Git, Java (JDK7 or later) and 
    Ant. If using Ubuntu Linux, they may be installed via command: 
    ```
@@ -74,7 +74,7 @@ use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.co
 
 4. Running the installed Zen Cash GUI wallet
 
-   Before running the GUI you need to start zcashd (e.g. `zend --daemon`). The wallet GUI is a Java program packaged 
+   Before running the GUI you need to start zend (e.g. `zend --daemon`). The wallet GUI is a Java program packaged 
    as an executable JAR file. It may be run from command line or started from another GUI tool (e.g. file manager). 
    Assuming you have already installed [ZenCash](http://zencash.io) and the GUI Wallet `ZenCashSwingWalletUI.jar` in 
    directory `/home/user/zen/src` one way to run it from command line is:
@@ -88,13 +88,9 @@ use [ZClassic Desktop GUI Wallet - binary release 0.58.2-beta](https://github.co
 ### Donations accepted
 This project is non-commercial in nature and developed by volunteers. If you find the GUI
 Wallet useful, please consider making a donation for its further development. Your contribution matters! Donations 
-are accepted at ZClassic Z address:
+are accepted at Zen address:
 ```
-zcaTKUNkohUgYj3C5bTapCKRk7JZapPfvCUj7GGBUWuBikx4sWEs5KSyd93b9jnjJnbDxnApyXyfeG482iJ5HzoC7cz6oob
-```
-or T address:
-```
-t1Ja4g7cERDhQVNhsMMNZ49Pm7i2hjDXUuV
+znmReNZJKE4vSpyZjLyEhr9AP3yj4VVzyrj
 ```
 
 

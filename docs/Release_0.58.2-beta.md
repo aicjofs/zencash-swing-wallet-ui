@@ -1,56 +1,56 @@
-# [ZClassic](http://zclassic.org) Desktop GUI Wallet - binary release v0.58.2-beta
+# [ZenCash](http://zensystem.io) Desktop GUI Wallet - binary release v0.58.2-beta
 
-This document describes how to install binary release v0.58.2-beta of the [ZClassic](http://zclassic.org) 
-Desktop GUI Wallet. This release of the ZClassic Desktop GUI Wallet is tested with ZClassic version 
-1.0.5. Users who encounter issues are welcome to report them in 
-the [issues section](https://github.com/vaklinov/zclassic-swing-wallet-ui/issues). 
+This document describes how to install binary release v0.58.2-beta of the [ZenCash](http://zensystem.io) 
+Desktop GUI Wallet. This release of the ZenCash Desktop GUI Wallet is tested with ZenCash version 
+2.0.9. Users who encounter issues are welcome to report them in 
+the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues). 
 
-![Screenshot](https://github.com/vaklinov/zclassic-swing-wallet-ui/raw/master/docs/ZClassicWallet.png "Main Window")
+![Screenshot](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/docs/ZClassicWallet.png "Main Window")
 
 ## Installing and running the Wallet GUI
 
 1. Downloading the wallet
  
-   Download file [ZClassicSwingWalletUI.jar](https://github.com/vaklinov/zclassic-swing-wallet-ui/releases/download/0.58.2-beta/ZClassicSwingWalletUI.jar)
+   Download file [ZencashSwingWalletUI.jar](https://github.com/vaklinov/zclassic-swing-wallet-ui/releases/download/)
    and place it in a folder like `~/Downloads`. Then please make the JAR executable with a command like:
    ```
-   user@ubuntu:~/Downloads$ chmod u+x ./ZClassicSwingWalletUI.jar
+   user@ubuntu:~/Downloads$ chmod u+x ./ZencashSwingWalletUI.jar
    ```
    
 2. Verifying the download
 
-   **This step is very important!** To verify that the file `ZClassicSwingWalletUI.jar` is an authentic release, you
+   **This step is very important!** To verify that the file `ZenCashSwingWalletUI.jar` is an authentic release, you
    need to compute its SHA256 checksum, like this:
    ```
-   user@ubuntu:~/Downloads$ sha256sum ZClassicSwingWalletUI.jar 
-   eddfac69794f9319e7466d79c5f6dedca6fd90094f4e63417999006d23858e31  ZClassicSwingWalletUI.jar
+   user@ubuntu:~/Downloads$ sha256sum ZenCashSwingWalletUI.jar 
+   4c88820cb4b13fdf080a0abc1e85c70747a9588694c171433a7d130c54550ca0  ZClassicSwingWalletUI.jar
    ```
-   **If the resulting checksum is not `eddfac69794f9319e7466d79c5f6dedca6fd90094f4e63417999006d23858e31` then**
+   **If the resulting checksum is not `4c88820cb4b13fdf080a0abc1e85c70747a9588694c171433a7d130c54550ca0` then**
    **something is wrong and you should discard the downloaded wallet!**
 
-3. Installing the downloaded ZClassic GUI wallet
+3. Installing the downloaded ZenCash GUI wallet
 
-  3.1. If you have built ZClassic from source code:
+  3.1. If you have built ZenCash from source code:
 
-   Assuming you have already built from source code [ZClassic](http://zclassic.org) in directory `/home/user/zclassic/src` (for 
-   example - this is the typical build dir. for ZClassic v1.0.5) which contains the command line tools `zcash-cli` 
-   and `zcashd`, you need to take the file `ZClassicSwingWalletUI.jar` and copy it 
-   to diretcory `/home/user/zclassic/src` (the same dir. that contains `zcash-cli` and `zcashd`). Example copy command:
+   Assuming you have already built from source code [ZenCash](http://zensystem.io) in directory `/home/user/zen/src` (for 
+   example - this is the typical build dir. for ZenCash v2.0.9) which contains the command line tools `zen-cli` 
+   and `zend`, you need to take the file `ZenCashSwingWalletUI.jar` and copy it 
+   to diretcory `/home/user/zen/src` (the same dir. that contains `zen-cli` and `zend`). Example copy command:
    ```
-   user@ubuntu:~/Downloads$ cp ./ZClassicSwingWalletUI.jar /home/user/zclassic/src    
+   user@ubuntu:~/Downloads$ cp ./ZenCashSwingWalletUI.jar /home/user/zen/src    
    ```
    
-4. Running the installed ZClassic GUI wallet
+4. Running the installed ZenCash GUI wallet
 
-   Before running the GUI you need to start zcashd (e.g. `zcashd --daemon`). The wallet GUI is a Java program packaged 
+   Before running the GUI you need to start zcashd (e.g. `zend --daemon`). The wallet GUI is a Java program packaged 
    as an executable JAR file. It may be run from command line or started from another GUI tool (e.g. file manager). 
-   Assuming you have already installed [ZClassic](http://zclassic.org) and the GUI Wallet `ZClassicSwingWalletUI.jar` in 
-   directory `/home/user/zclassic/src` one way to run it from command line is:
+   Assuming you have already installed [ZenCash](http://zensystem.io) and the GUI Wallet `ZenCashSwingWalletUI.jar` in 
+   directory `/home/user/zen/src` one way to run it from command line is:
    ```
-   user@ubuntu:~$ java -jar /home/user/zclassic/src/ZClassicSwingWalletUI.jar
+   user@ubuntu:~$ java -jar /home/user/zen/src/ZenCashSwingWalletUI.jar
    ```
    If you are using Ubuntu (or similar ;) Linux you may instead just use the file manager and 
-   right-click on the `ZClassicSwingWalletUI.jar` file and choose the option "Open with OpenJDK 8 Runtime". 
+   right-click on the `ZenCashSwingWalletUI.jar` file and choose the option "Open with OpenJDK 8 Runtime". 
    This will start the ZClassic GUI wallet.
 
 ### Donations accepted
@@ -58,11 +58,11 @@ This project is non-commercial in nature and developed by volunteers. If you fin
 Wallet useful, please consider making a donation for its further development. Your contribution matters! Donations 
 are accepted at ZClassic address:
 ```
-zcaTKUNkohUgYj3C5bTapCKRk7JZapPfvCUj7GGBUWuBikx4sWEs5KSyd93b9jnjJnbDxnApyXyfeG482iJ5HzoC7cz6oob
+znmReNZJKE4vSpyZjLyEhr9AP3yj4VVzyrj
 ```
 
 ### License
-This program is distributed under an [MIT License](https://github.com/vaklinov/zclassic-swing-wallet-ui/raw/master/LICENSE).
+This program is distributed under an [MIT License](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/LICENSE).
 
 ### Disclaimer
 
