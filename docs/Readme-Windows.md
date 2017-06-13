@@ -1,12 +1,14 @@
 # [Zencash](https://zensystem.io) Desktop GUI Wallet - for Windows
 
-The [ZenCash](https://zensystem.io) development team has released a [version for Windows](https://github.com/cronicc/zen/releases).
+The [ZenCash](https://zensystem.io) development team has released a commandline [version for Windows](https://github.com/cronicc/zen/releases).
+
+NOTE: As of Release 0.69 it will only be required to extract the [ZenCashSwingWallet4win.zip](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1072563/ZenCashSwingWallet4win69.zip) and run ZenCashSwingWalletUI.jar if Java is already installed.  No further action required.
+      The below is for manually installing and information purposes.
+
+======================================================================================
 Before installing the GUI wallet on Windows you need to install ZenCash on Windows.
 
 ![Screenshot](https://github.com/aicjofs/zencash-swing-wallet-ui/raw/master/docs/ZClassicWalletWindows.png "ZenCash Wallet for Windows")
-
-NOTE: As of Release 0.69 it will only be required to extract the ZenCashSwingWallet4win.zip and run ZenCashSwingWalletUI.jar
-      The below is for manually installing and information purposes.
 
 1. Installing Zencash on Windows
 
