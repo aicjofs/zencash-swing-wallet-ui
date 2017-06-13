@@ -85,7 +85,13 @@ public class StartupProgressDialog extends JFrame {
 //            if ("true".equalsIgnoreCase(System.getProperty("launching.from.appbundle")))
 //                performOSXBundleLaunch();
 //        }
-        
+
+	if (OSUtil.getOSType() == OS_TYPE.WINDOWS) 
+	{
+             ProvingKeyFetcher keyFetcher = new ProvingKeyFetcher();
+             keyFetcher.fetchIfMissing(this);
+	}
+ 
         System.out.println("Splash: checking if zend is already running...");
         boolean shouldStartZCashd = false;
         try {
