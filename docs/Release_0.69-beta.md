@@ -1,6 +1,6 @@
-# [ZenCash](http://zensystem.io) Desktop GUI Wallet - binary release v0.58.2-beta
+# [ZenCash](http://zensystem.io) Desktop GUI Wallet - binary release v0.69-beta
 
-This document describes how to install binary release v0.58.2-beta of the [ZenCash](http://zensystem.io) 
+This document describes how to install binary release v0.69-beta of the [ZenCash](http://zensystem.io) 
 Desktop GUI Wallet. This release of the ZenCash Desktop GUI Wallet is tested with ZenCash version 
 2.0.9. Users who encounter issues are welcome to report them in 
 the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues). 
@@ -9,9 +9,11 @@ the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues).
 
 ## Installing and running the Wallet GUI
 
+For Windows Installer check here [Information](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Readme-Windows.md) or [Download for Windows](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1072563/ZenCashSwingWallet4win69.zip)
+
 1. Downloading the wallet
  
-   Download file [ZencashSwingWalletUI.jar](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1070166/ZenCashSwingWalletUI62beta2.zip)
+   Download file [ZencashSwingWalletUI.jar](https://github.com/aicjofs/zencash-swing-wallet-ui/releases/download/v0.69-SNAPSHOT/ZenCashSwingWalletUI.jar)
    and place it in a folder like `~/Downloads`. Then please make the JAR executable with a command like:
    ```
    user@ubuntu:~/Downloads$ chmod u+x ./ZencashSwingWalletUI.jar
@@ -23,9 +25,9 @@ the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues).
    need to compute its SHA256 checksum, like this:
    ```
    user@ubuntu:~/Downloads$ sha256sum ZenCashSwingWalletUI.jar 
-   4c88820cb4b13fdf080a0abc1e85c70747a9588694c171433a7d130c54550ca0  ZClassicSwingWalletUI.jar
+   FE3C443B6DDFBF1FD31ACBF8B141E27101D226317746B65B64EEF521AAB82CE5  ZenCashSwingWalletUI.jar
    ```
-   **If the resulting checksum is not `4c88820cb4b13fdf080a0abc1e85c70747a9588694c171433a7d130c54550ca0` then**
+   **If the resulting checksum is not `FE3C443B6DDFBF1FD31ACBF8B141E27101D226317746B65B64EEF521AAB82CE5` then**
    **something is wrong and you should discard the downloaded wallet!**
 
 3. Installing the downloaded ZenCash GUI wallet

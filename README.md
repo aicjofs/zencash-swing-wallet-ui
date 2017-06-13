@@ -16,7 +16,7 @@ presents the information in a user-friendly manner.
 **[source](https://github.com/aicjofs/zencash-swing-wallet-ui/archive/master.zip).**
 The details of how to build it are described below (easy to follow).
 Users who insist on downloading a binary release may instead 
-use [ZenCash Desktop GUI Wallet - binary release 0.58.2-beta](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Release_0.58.2-beta.md)
+use [ZenCash Desktop GUI Wallet - binary release 0.69-beta](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Release_0.69-beta.md)
 
 
 1. Operating system and tools
