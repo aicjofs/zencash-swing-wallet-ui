@@ -48,6 +48,7 @@
     	    <fileset dir="${src.dir}/resources">  
     	        <include name="images/**"/>
 		<include name="keys/**"/>
+		<include name="conf/**"/>
     	    </fileset>
     	</copy>
     </target>

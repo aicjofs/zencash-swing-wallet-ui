@@ -6,7 +6,11 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Locale;
@@ -90,6 +94,7 @@ public class StartupProgressDialog extends JFrame {
 	{
              ProvingKeyFetcher keyFetcher = new ProvingKeyFetcher();
              keyFetcher.fetchIfMissing(this);
+	     performZenConf();
 	}
  
         System.out.println("Splash: checking if zend is already running...");
@@ -224,6 +229,32 @@ public class StartupProgressDialog extends JFrame {
         File firstRun = new File(bundlePath,"first-run.sh");
         Process firstRunProcess = Runtime.getRuntime().exec(firstRun.getCanonicalPath());
         firstRunProcess.waitFor();
+    }
+
+ private void performZenConf() throws IOException, InterruptedException 
+    {
+        System.out.println("Copying a default zen.conf");
+        File zConf = new File(System.getenv("APPDATA") + "/Zen");
+        zConf = zConf.getCanonicalFile();
+        
+        if (!zConf.exists()) {
+	zConf.mkdirs();
+        File zenConfFile = new File(zConf,"zen.conf");
+        FileOutputStream fos = new FileOutputStream(zenConfFile);
+        InputStream is = ProvingKeyFetcher.class.getClassLoader().getResourceAsStream("conf/zen.conf");
+        copy(is,fos);
+        fos.close();
+        is = null;
+        }
+    }
+
+private static void copy(InputStream is, OutputStream os) throws IOException {
+        byte[] buf = new byte[0x1 << 13];
+        int read;
+        while ((read = is.read(buf)) >- 0) {
+            os.write(buf,0,read);
+        }
+        os.flush();
     }
     
     
