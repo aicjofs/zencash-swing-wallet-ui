@@ -11,7 +11,7 @@ the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues).
 
 1. Downloading the wallet
  
-   Download file [ZencashSwingWalletUI.jar](https://github.com/vaklinov/zclassic-swing-wallet-ui/releases/download/)
+   Download file [ZencashSwingWalletUI.jar](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1070166/ZenCashSwingWalletUI62beta2.zip)
    and place it in a folder like `~/Downloads`. Then please make the JAR executable with a command like:
    ```
    user@ubuntu:~/Downloads$ chmod u+x ./ZencashSwingWalletUI.jar
