@@ -87,11 +87,11 @@ public class ZCashUI
     private JMenuItem menuItemImportKeys;
     private JMenuItem menuItemShowPrivateKey;
     private JMenuItem menuItemImportOnePrivateKey;
-    private JMenuItem menuItemAddressBook;
 
     private DashboardPanel dashboard;
     private AddressesPanel addresses;
     private SendCashPanel  sendPanel;
+    private AddressBookPanel addressBookPanel;
     
     JTabbedPane tabs;
 
@@ -124,11 +124,14 @@ public class ZCashUI
         		    new ImageIcon(cl.getResource("images/overview.png")),
         		    dashboard = new DashboardPanel(this, installationObserver, clientCaller, errorReporter));
         tabs.addTab("Own addresses ",
-        		    new ImageIcon(cl.getResource("images/address-book.png")),
+        		    new ImageIcon(cl.getResource("images/own-addresses.png")),
         		    addresses = new AddressesPanel(clientCaller, errorReporter));
         tabs.addTab("Send cash ",
         		    new ImageIcon(cl.getResource("images/send.png")),
         		    sendPanel = new SendCashPanel(clientCaller, errorReporter));
+        tabs.addTab("Address book ",
+    		        new ImageIcon(cl.getResource("images/address-book.png")),
+    		        addressBookPanel = new AddressBookPanel(sendPanel, tabs));
         contentPane.add(tabs);
 
         this.walletOps = new WalletOperations(
@@ -163,12 +166,13 @@ public class ZCashUI
         wallet.add(menuItemImportOnePrivateKey = new JMenuItem("Import one private key...", KeyEvent.VK_N));
         menuItemImportOnePrivateKey.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, accelaratorKeyMask));        
         mb.add(wallet);
-        
-        JMenu extras = new JMenu("Extras");
-        extras.setMnemonic(KeyEvent.VK_R);
-        extras.add(menuItemAddressBook = new JMenuItem("Address book...", KeyEvent.VK_D));
-        menuItemAddressBook.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, accelaratorKeyMask));        
-        mb.add(extras);
+
+        // Some day the extras menu will be populated with less essential functions
+        //JMenu extras = new JMenu("Extras");
+        //extras.setMnemonic(KeyEvent.VK_ NOT R);
+        //extras.add(menuItemAddressBook = new JMenuItem("Address book...", KeyEvent.VK_D));
+        //menuItemAddressBook.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, accelaratorKeyMask));        
+        //mb.add(extras);
 
         // TODO: Temporarily disable encryption until further notice - Oct 24 2016
         menuItemEncrypt.setEnabled(false);
@@ -272,18 +276,6 @@ public class ZCashUI
            }
        );
        
-       menuItemAddressBook.addActionListener(   
-           new ActionListener()
-           {
-               @Override
-               public void actionPerformed(ActionEvent e)
-               {
-            	   ZCashUI.this.walletOps.showAddressBook();
-               }
-           }
-        );
-
-
         // Close operation
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new WindowAdapter()
