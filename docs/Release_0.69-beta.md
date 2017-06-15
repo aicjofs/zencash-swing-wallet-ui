@@ -9,11 +9,11 @@ the [issues section](https://github.com/aicjofs/zencash-swing-wallet-ui/issues).
 
 ## Installing and running the Wallet GUI
 
-For Windows Installer check here [Information](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Readme-Windows.md) or [Download for Windows](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1072563/ZenCashSwingWallet4win69.zip)
+For Windows Installer check here [Information](https://github.com/aicjofs/zencash-swing-wallet-ui/blob/master/docs/Readme-Windows.md) or [Download for Windows](https://github.com/aicjofs/zencash-swing-wallet-ui/files/1079155/ZenCashSwingWallet4win693.zip)
 
 1. Downloading the wallet
  
-   Download file [ZencashSwingWalletUI.jar](https://github.com/aicjofs/zencash-swing-wallet-ui/releases/download/v0.69-SNAPSHOT/ZenCashSwingWalletUI.jar)
+   Download file [ZencashSwingWalletUI.jar](https://github.com/aicjofs/zencash-swing-wallet-ui/releases/download/0.69.3-SNAPSHOT/ZenCashSwingWalletUI.jar)
    and place it in a folder like `~/Downloads`. Then please make the JAR executable with a command like:
    ```
    user@ubuntu:~/Downloads$ chmod u+x ./ZencashSwingWalletUI.jar
