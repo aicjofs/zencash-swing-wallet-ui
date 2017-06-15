@@ -174,11 +174,12 @@ public class WalletOperations
 			File f = fileChooser.getSelectedFile();
 			
 			Cursor oldCursor = this.parent.getCursor();
+			String path = null;
 			try
 			{
 				this.parent.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 							
-				this.clientCaller.backupWallet(f.getName());
+				path = this.clientCaller.backupWallet(f.getName());
 				
 				this.parent.setCursor(oldCursor);
 			} catch (WalletCallException wce)
@@ -197,7 +198,8 @@ public class WalletOperations
 			JOptionPane.showMessageDialog(
 				this.parent, 
 				"The wallet has been backed up successfully to file: " + f.getName() + "\n" +
-				"in the backup directory provided to zend (-exportdir=<dir>).",
+				"in the backup directory provided to zcashd (-exportdir=<dir>).\nFull path is: " + 
+				path,
 				"Wallet is backed up...", JOptionPane.INFORMATION_MESSAGE);
 			
 		} catch (Exception e)
@@ -230,11 +232,12 @@ public class WalletOperations
 			File f = fileChooser.getSelectedFile();
 			
 			Cursor oldCursor = this.parent.getCursor();
+			String path = null;
 			try
 			{
 				this.parent.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 							
-				this.clientCaller.exportWallet(f.getName());
+				path = this.clientCaller.exportWallet(f.getName());
 				
 				this.parent.setCursor(oldCursor);
 			} catch (WalletCallException wce)
@@ -254,9 +257,10 @@ public class WalletOperations
 				this.parent, 
 				"The wallet private keys have been exported successfully to file:\n" + 
 				f.getName() + "\n" +
-				"in the backup directory provided to zend (-exportdir=<dir>).\n" +
+				"in the backup directory provided to zcashd (-exportdir=<dir>).\nFull path is: " + 
+				path + "\n" +
 				"You need to protect this file from unauthorized access. Anyone who\n" +
-				"has access to the private keys can spend the ZCL balance!",
+				"has access to the private keys can spend the ZCash balance!",
 				"Wallet private key export...", JOptionPane.INFORMATION_MESSAGE);
 			
 		} catch (Exception e)

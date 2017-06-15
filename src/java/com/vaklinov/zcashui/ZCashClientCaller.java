@@ -744,23 +744,25 @@ public class ZCashClientCaller
 	}
 	
 	
-	public synchronized void backupWallet(String fileName)
+	public synchronized String backupWallet(String fileName)
 		throws WalletCallException, IOException, InterruptedException
 	{
 		System.out.println("Backup up wallet to location: " + fileName);
 		String response = this.executeCommandAndGetSingleStringResponse(
 			"backupwallet", wrapStringParameter(fileName));
 		// If no exception - obviously successful		
+		return response;
 	}
 	
 	
-	public synchronized void exportWallet(String fileName)
+	public synchronized String exportWallet(String fileName)
 		throws WalletCallException, IOException, InterruptedException
 	{
 		System.out.println("Export wallet keys to location: " + fileName);
 		String response = this.executeCommandAndGetSingleStringResponse(
 			"z_exportwallet", wrapStringParameter(fileName));
 		// If no exception - obviously successful		
+		return response;
 	}
 	
 	
