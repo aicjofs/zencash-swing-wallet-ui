@@ -124,7 +124,7 @@ public class WalletOperations
 			} catch (WalletCallException wce)
 			{
 				this.parent.setCursor(oldCursor);
-				wce.printStackTrace();
+				Log.error("Unexpected error: ", wce);
 				
 				JOptionPane.showMessageDialog(
 					this.parent, 
@@ -185,7 +185,7 @@ public class WalletOperations
 			} catch (WalletCallException wce)
 			{
 				this.parent.setCursor(oldCursor);
-				wce.printStackTrace();
+				Log.error("Unexpected error: ", wce);
 				
 				JOptionPane.showMessageDialog(
 					this.parent, 
@@ -243,7 +243,7 @@ public class WalletOperations
 			} catch (WalletCallException wce)
 			{
 				this.parent.setCursor(oldCursor);
-				wce.printStackTrace();
+				Log.error("Unexpected error: ", wce);
 				
 				JOptionPane.showMessageDialog(
 					this.parent, 
@@ -314,7 +314,7 @@ public class WalletOperations
 			} catch (WalletCallException wce)
 			{
 				this.parent.setCursor(oldCursor);
-				wce.printStackTrace();
+				Log.error("Unexpected error: ", wce);
 				
 				JOptionPane.showMessageDialog(
 					this.parent, 

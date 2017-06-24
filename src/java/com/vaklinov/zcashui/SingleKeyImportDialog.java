@@ -207,7 +207,7 @@ public class SingleKeyImportDialog
 							JOptionPane.INFORMATION_MESSAGE);		
 				} catch (Exception e)
 				{
-					e.printStackTrace();
+					Log.error("An error occurred when importing private key", e);
 					
 					JOptionPane.showMessageDialog(
 						SingleKeyImportDialog.this.getRootPane().getParent(), 

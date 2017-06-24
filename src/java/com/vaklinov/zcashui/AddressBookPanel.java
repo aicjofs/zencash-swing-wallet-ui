@@ -136,11 +136,11 @@ public class AddressBookPanel extends JPanel {
             }
         }
         
-        System.out.println("loaded "+entries.size()+" address book entries");
+        Log.info("loaded "+entries.size()+" address book entries");
     }
     
     private void saveEntriesToDisk() {
-    	System.out.println("Saving "+entries.size()+" addresses");
+    	Log.info("Saving "+entries.size()+" addresses");
         try {
             File addressBookFile = new File(OSUtil.getSettingsDirectory(),"addressBook.csv");
             try (PrintWriter printWriter = new PrintWriter(new FileWriter(addressBookFile))) {
@@ -149,8 +149,7 @@ public class AddressBookPanel extends JPanel {
             }
         } catch (IOException bad) {
         	// TODO: report error to the user!
-        	bad.printStackTrace();
-        	System.out.println("Saving Address Book Failed!!!!");
+        	Log.error("Saving Address Book Failed!!!!", bad);
         }
     }
     

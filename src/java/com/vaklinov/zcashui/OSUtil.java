@@ -97,9 +97,9 @@ public class OSUtil
 			return OS_TYPE.OTHER_OS;
 		}
 	}
-
-
-	// Returns the name of the zcashd server - may vary depending on the OS.
+	
+	
+	// Returns the name of the zend server - may vary depending on the OS.
 	public static String getZCashd()
 	{
 		String zcashd = "zend";
@@ -164,8 +164,8 @@ public class OSUtil
 
 		return new File(".").getCanonicalPath();
 	}
-
-
+	
+	
 	public static File getUserHomeDirectory()
 		throws IOException
 	{
@@ -191,7 +191,7 @@ public class OSUtil
 	}
 
 
-	// Directory with program settings to store
+	// Directory with program settings to store as well as logging
 	public static String getSettingsDirectory()
 		throws IOException
 	{
@@ -214,7 +214,7 @@ public class OSUtil
 		{
 			if (!dir.mkdirs())
 			{
-				System.out.println("WARNING: Could not create settings directory: " + dir.getCanonicalPath());
+				Log.warning("Could not create settings directory: " + dir.getCanonicalPath());
 			}
 		}
 
@@ -244,7 +244,7 @@ public class OSUtil
 	}
 
 
-	// Can be used to find zcashd/zcash-cli if it is not found in the same place as the wallet JAR
+	// Can be used to find zend/zen-cli if it is not found in the same place as the wallet JAR
 	// Null if not found
 	public static File findZCashCommand(String command)
 		throws IOException
@@ -267,27 +267,27 @@ public class OSUtil
 	    if (isUnixLike(os))
 	    {
 	    	// The following search directories apply to UNIX-like systems only
-		final String dirs[] = new String[]
-		{
-			"/usr/bin/", // Typical Ubuntu
-			"/bin/",
-			"/usr/local/bin/",
-			"/usr/local/zen/bin/",
-			"/usr/lib/zen/bin/",
-			"/opt/local/bin/",
-			"/opt/local/zen/bin/",
-			"/opt/zen/bin/"
-		};
-
-		for (String d : dirs)
-		{
-				f = new File(d + command);
-			if (f.exists())
+			final String dirs[] = new String[]
 			{
-				return f;
+				"/usr/bin/", // Typical Ubuntu
+				"/bin/",
+				"/usr/local/bin/",
+				"/usr/local/zcash/bin/",
+				"/usr/lib/zcash/bin/",
+				"/opt/local/bin/",
+				"/opt/local/zcash/bin/",
+				"/opt/zcash/bin/"
+			};
+	
+			for (String d : dirs)
+			{
+				f = new File(d + command);
+				if (f.exists())
+				{
+					return f;
+				}
 			}
-		}
-		
+			
 	    } else if (os == OS_TYPE.WINDOWS)
 	    {
 	    	// A probable Windows directory is a ZCash dir in Program Files
@@ -316,6 +316,7 @@ public class OSUtil
 		{
 			return f.getCanonicalFile();
 		}
+			
 
 		// TODO: Try to find it with which/PATH
 		

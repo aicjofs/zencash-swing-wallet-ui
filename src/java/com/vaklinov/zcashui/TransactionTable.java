@@ -87,7 +87,7 @@ public class TransactionTable
 						String txID = TransactionTable.this.getModel().getValueAt(lastRow, 6).toString();
 						txID = txID.replaceAll("\"", ""); // In case it has quotes
 						
-						System.out.println("Transaction ID for detail dialog is: " + txID);
+						Log.info("Transaction ID for detail dialog is: " + txID);
 						Map<String, String> details = caller.getRawTransactionDetails(txID);
 						String rawTrans = caller.getRawTransaction(txID);
 						
@@ -95,7 +95,7 @@ public class TransactionTable
 						dd.setVisible(true);
 					} catch (Exception ex)
 					{
-						ex.printStackTrace();
+						Log.error("Unexpected error: ", ex);
 						// TODO: report exception to user
 					}
 				} else
@@ -122,13 +122,13 @@ public class TransactionTable
 						String txID = TransactionTable.this.getModel().getValueAt(lastRow, 6).toString();
 						txID = txID.replaceAll("\"", ""); // In case it has quotes
 						
-						System.out.println("Transaction ID for block explorer is: " + txID);
+						Log.info("Transaction ID for block explorer is: " + txID);
 						// https://explorer.zcha.in/transactions/<ID>
 						Desktop.getDesktop().browse(
 							new URL("http://node1.zenchain.info:8886/tx/" + txID).toURI());
 					} catch (Exception ex)
 					{
-						ex.printStackTrace();
+						Log.error("Unexpected error: ", ex);
 						// TODO: report exception to user
 					}
 				} else
@@ -173,13 +173,13 @@ public class TransactionTable
 						}
 						
 						
-						System.out.println("Transaction ID for Memo field is: " + txID);
-						System.out.println("Account for Memo field is: " + acc);
+						Log.info("Transaction ID for Memo field is: " + txID);
+						Log.info("Account for Memo field is: " + acc);
 						parent.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 						// TODO: some day support outgoing Z transactions
  						String MemoField = caller.getMemoField(acc, txID);
  						parent.setCursor(oldCursor);
- 						System.out.println("Memo field is: " + MemoField);
+ 						Log.info("Memo field is: " + MemoField);
  						
  						if (MemoField != null)
  						{
@@ -198,7 +198,7 @@ public class TransactionTable
 					} catch (Exception ex)
 					{
 						parent.setCursor(oldCursor);
-						ex.printStackTrace();
+						Log.error("", ex);
 						// TODO: report exception to user
 					}
 				} else

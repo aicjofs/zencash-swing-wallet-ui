@@ -108,7 +108,7 @@ public class DataTable
 					DataTable.this.exportToCSV();						
 				} catch (Exception ex)
 				{
-					ex.printStackTrace();
+					Log.error("Unexpected error: ", ex);
 					// TODO: better error handling
 					JOptionPane.showMessageDialog(
 							DataTable.this.getRootPane().getParent(), 

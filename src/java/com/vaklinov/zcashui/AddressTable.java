@@ -112,7 +112,7 @@ public class AddressTable
 						
 					} catch (Exception ex)
 					{
-						ex.printStackTrace();
+						Log.error("Unexpected error: ", ex);
 						// TODO: report exception to user
 					}
 				} else

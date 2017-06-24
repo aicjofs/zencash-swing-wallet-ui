@@ -96,8 +96,8 @@ public class StartupProgressDialog extends JFrame {
              keyFetcher.fetchIfMissing(this);
 	     performZenConf();
 	}
- 
-        System.out.println("Splash: checking if zend is already running...");
+
+        Log.info("Splash: checking if zend is already running...");
         boolean shouldStartZCashd = false;
         try {
             clientCaller.getDaemonRawRuntimeInfo();
@@ -112,13 +112,13 @@ public class StartupProgressDialog extends JFrame {
         }
         
         if (!shouldStartZCashd) {
-            System.out.println("Splash: zend already running...");
+        	Log.info("Splash: zend already running...");
             // What if started by hand but taking long to initialize???
 //            doDispose();
 //            return;
         } else
         {
-        	System.out.println("Splash: zend will be started...");
+        	Log.info("Splash: zcashd will be started...");
         }
         
         final Process daemonProcess = 
@@ -160,7 +160,7 @@ public class StartupProgressDialog extends JFrame {
         if (daemonProcess != null) // Shutdown only if we started it
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
-                System.out.println("Stopping zend because we started it - now it is alive: " + 
+                Log.info("Stopping zend because we started it - now it is alive: " + 
                 		           StartupProgressDialog.this.isAlive(daemonProcess));
                 try 
                 {
@@ -170,7 +170,7 @@ public class StartupProgressDialog extends JFrame {
 	                while (!StartupProgressDialog.this.waitFor(daemonProcess, 3000))
 	                {
 	                	long end = System.currentTimeMillis();
-	                	System.out.println("Waiting for " + ((end - start) / 1000) + " seconds for zend to exit...");
+	                	Log.info("Waiting for " + ((end - start) / 1000) + " seconds for zend to exit...");
 	                	
 	                	if (end - start > 10 * 1000)
 	                	{
@@ -185,15 +185,14 @@ public class StartupProgressDialog extends JFrame {
 	                }
 	            
 	                if (StartupProgressDialog.this.isAlive(daemonProcess)) {
-	                    	System.out.println("zend is still alive although we tried to stop it. " +
+	                    	Log.info("zend is still alive although we tried to stop it. " +
 	                                           "Hopefully it will stop later!");
 	                        //System.out.println("zend is still alive, killing forcefully");
 	                        //daemonProcess.destroyForcibly();
 	                    } else
-	                        System.out.println("zend shut down successfully");
+	                        Log.info("zend shut down successfully");
                 } catch (Exception bad) {
-                    System.out.println("Couldn't stop zend!");
-                    bad.printStackTrace();
+                	Log.error("Couldn't stop zend!", bad);
                 }
             }
         });
@@ -221,7 +220,7 @@ public class StartupProgressDialog extends JFrame {
     
     // TODO: Unused for now
     private void performOSXBundleLaunch() throws IOException, InterruptedException {
-        System.out.println("performing OSX Bundle-specific launch");
+        Log.info("performing OSX Bundle-specific launch");
         File bundlePath = new File(System.getProperty("zcash.location.dir"));
         bundlePath = bundlePath.getCanonicalFile();
         
@@ -300,7 +299,7 @@ private static void copy(InputStream is, OutputStream os) throws IOException {
 				} catch (InterruptedException ie)
 				{
 					// One of the rare cases where we do nothing
-					ie.printStackTrace();
+					Log.error("Unexpected error: ", ie);
 				}
 				
 				endWait = System.currentTimeMillis();
