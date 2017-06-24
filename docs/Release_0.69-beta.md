@@ -25,9 +25,9 @@ For Windows Installer check here [Information](https://github.com/aicjofs/zencas
    need to compute its SHA256 checksum, like this:
    ```
    user@ubuntu:~/Downloads$ sha256sum ZenCashSwingWalletUI.jar 
-   FE3C443B6DDFBF1FD31ACBF8B141E27101D226317746B65B64EEF521AAB82CE5  ZenCashSwingWalletUI.jar
+   B3938A3BFFC0DCA232EBB619205F48FC819F30B9B58B9A2667053F85748B8DE7  ZenCashSwingWalletUI.jar
    ```
-   **If the resulting checksum is not `FE3C443B6DDFBF1FD31ACBF8B141E27101D226317746B65B64EEF521AAB82CE5` then**
+   **If the resulting checksum is not `B3938A3BFFC0DCA232EBB619205F48FC819F30B9B58B9A2667053F85748B8DE7` then**
    **something is wrong and you should discard the downloaded wallet!**
 
 3. Installing the downloaded ZenCash GUI wallet
