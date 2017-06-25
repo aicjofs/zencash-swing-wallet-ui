@@ -40,11 +40,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.Properties;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -87,11 +93,14 @@ public class ZCashUI
     private JMenuItem menuItemImportKeys;
     private JMenuItem menuItemShowPrivateKey;
     private JMenuItem menuItemImportOnePrivateKey;
+    private JCheckBoxMenuItem menuItemLogging;
+    
 
     private DashboardPanel dashboard;
     private AddressesPanel addresses;
     private SendCashPanel  sendPanel;
-    private AddressBookPanel addressBookPanel;
+    private AddressBookPanel addressBookPanel;    
+
     
     JTabbedPane tabs;
 
@@ -99,6 +108,8 @@ public class ZCashUI
         throws IOException, InterruptedException, WalletCallException
     {
         super("ZenCash Swing Wallet UI 0.69-3 (beta)");
+
+	ZCashUI.setConfig("Logging", "false");
         
         if (progressDialog != null)
         {
@@ -167,12 +178,12 @@ public class ZCashUI
         menuItemImportOnePrivateKey.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, accelaratorKeyMask));        
         mb.add(wallet);
 
-        // Some day the extras menu will be populated with less essential functions
-        //JMenu extras = new JMenu("Extras");
-        //extras.setMnemonic(KeyEvent.VK_ NOT R);
-        //extras.add(menuItemAddressBook = new JMenuItem("Address book...", KeyEvent.VK_D));
-        //menuItemAddressBook.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, accelaratorKeyMask));        
-        //mb.add(extras);
+
+        JMenu extras = new JMenu("Extras");
+        extras.setMnemonic(KeyEvent.VK_R);
+        extras.add(menuItemLogging = new JCheckBoxMenuItem("Logging",  getConf("Logging")));
+        menuItemLogging.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, accelaratorKeyMask));
+        mb.add(extras);
 
         // TODO: Temporarily disable encryption until further notice - Oct 24 2016
         menuItemEncrypt.setEnabled(false);
@@ -180,6 +191,21 @@ public class ZCashUI
         this.setJMenuBar(mb);
 
         // Add listeners etc.
+
+        menuItemLogging.addActionListener(
+                new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent e)
+                    {
+                    	AbstractButton log = (AbstractButton) e.getSource();
+                        boolean logging = log.getModel().isSelected();
+                        String logValue = String.valueOf(logging);
+                        ZCashUI.setConfig("Logging", logValue);
+                    }
+                }
+            );      
+        
         menuItemExit.addActionListener(
             new ActionListener()
             {
@@ -492,5 +518,55 @@ public class ZCashUI
                 JOptionPane.ERROR_MESSAGE);
             System.exit(3);
         }
+    }
+
+    public static void setConfig(String a, String b) {
+    	String userDir = null;
+		try {
+			userDir = OSUtil.getSettingsDirectory();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+          File configFile = new File(userDir + File.separator + "config.properties");
+        
+        try {
+            Properties logs = new Properties();
+            logs.setProperty(a, b);
+        //    logs.setProperty("Testnet", testValue);
+            FileWriter writer = new FileWriter(configFile);
+            logs.store(writer, "Zen Wallet settings");
+            writer.close();
+        } catch (FileNotFoundException ex) {
+            // file does not exist
+        } catch (IOException ex) {
+            // I/O error
+        }
+    }
+
+    public static boolean getConf(String conf){
+    	String userDir = null;
+		try {
+			userDir = OSUtil.getSettingsDirectory();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    	File configFile = new File(userDir + File.separator + "config.properties");
+    	 
+    	try {
+    	    FileReader reader = new FileReader(configFile);
+    	    Properties settings = new Properties();
+    	    settings.load(reader);	 
+    	    String config = settings.getProperty(conf);
+    	//    Log.info("Set " + conf + " is: " + config);
+    	    Boolean configCheck = Boolean.valueOf(config);
+    	    reader.close();
+    		return configCheck;
+    	} catch (FileNotFoundException ex) {
+    	    // file does not exist
+    	} catch (IOException ex) {
+    	    // I/O error
+    	}
+    	Boolean configCheck=false;
+		return configCheck;
     }
 }

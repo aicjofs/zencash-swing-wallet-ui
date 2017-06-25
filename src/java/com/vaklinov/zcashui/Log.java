@@ -39,6 +39,7 @@ import java.util.Date;
 
 public class Log 
 {
+
 	private static PrintStream fileOut;
 
 	static 
@@ -110,6 +111,9 @@ public class Log
 			                         Throwable t, Object ... args)
 	{
 		// TODO: Too much garbage collection
+		Boolean log = ZCashUI.getConf("Logging");
+		if(log == false){
+			return;}
 		for (int i = 0; i < args.length; i++)
 		{
 			message = message.replace("{" + i  + "}", args[i].toString());
